@@ -1,10 +1,16 @@
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import React, {useMemo} from 'react';
 import {ConnectionProvider, WalletProvider} from '@solana/wallet-adapter-react';
 import {WalletAdapterNetwork} from '@solana/wallet-adapter-base';
-import {WalletModalProvider, WalletMultiButton} from '@solana/wallet-adapter-react-ui';
+import {WalletModalProvider} from '@solana/wallet-adapter-react-ui';
 import {PhantomWalletAdapter} from "@solana/wallet-adapter-wallets";
 import {clusterApiUrl} from '@solana/web3.js';
+
+const WalletMultiButtonDynamic = dynamic(
+    async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
+    { ssr: false }
+);
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -30,7 +36,7 @@ const Layout = ({ children }) => {
               </h1>
             </Link>
             <div>
-              <WalletMultiButton className="bg-black"/>
+              <WalletMultiButtonDynamic className="bg-black"/>
             </div>
             {children}
           </main>
