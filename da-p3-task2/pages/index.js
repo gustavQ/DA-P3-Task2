@@ -8,8 +8,8 @@ const Home = () => {
         <Link href='/tokens'>
           <div className="w-60 h-20 rounded-lg bg-indigo-400 hover:bg-indigo-500 flex justify-center items-center text-lg font-bold text-white">Tokens</div>
         </Link>
-        <Link href='/'>
-          <div className="w-60 h-20 rounded-lg bg-indigo-400 hover:bg-indigo-500 flex justify-center items-center text-lg font-bold text-white">NFT Traits</div>
+        <Link href='/traits'>
+          <div className="w-60 h-20 rounded-lg bg-indigo-400 hover:bg-indigo-500 flex justify-center items-center text-lg font-bold text-white">Traits</div>
         </Link>
       </div>
     </div>
